@@ -4,11 +4,11 @@ const initSocket = (server) => {
   const { Server } = require('socket.io');
   io = new Server(server, {
     cors: {
-      origin: 'https://mtsbackend-production.up.railway.app',
-      methods: ['GET', 'POST','PUT']
+      origin: 'https://mak-tech-solution.netlify.app',  // This should be your front-end domain
+      methods: ['GET', 'POST', 'PUT'],
+      credentials: true  // Optional: if you're using cookies or sessions
     }
   });
-  https://mtsbackend-production.up.railway.app/
 
   io.on('connection', (socket) => {
     console.log('User connected:', socket.id);
@@ -25,23 +25,16 @@ const initSocket = (server) => {
 
     // Real-time updates for project creation and updates
     socket.on('projectCreated', (project) => {
-      // Emit project creation event
       io.emit('projectCreated', project);
     });
 
     socket.on('projectUpdated', (project) => {
-      // Emit project update event
       io.emit('projectUpdated', project);
- 
-    
-    
     });
 
     socket.on('salesDataEachProfile', (salesDataWithProfileName) => {
       io.emit('salesDataEachProfile', salesDataWithProfileName);
     });
-
-
   });
 };
 
