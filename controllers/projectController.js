@@ -115,7 +115,7 @@ const io = socketIo(server);  // Create a new instance of Socket.IO
           
             const projectsWithClientNames = {
               ...projects,
-              clientName: projects.project_name.split('-')[0],
+              clientName: projects.project_name.split('-'),
               date: formatDate(projects.date),
               deli_last_date: formatDate(projects.deli_last_date),
             };
