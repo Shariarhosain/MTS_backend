@@ -12,17 +12,17 @@ initSocket(server); // ✅ Initialize Socket.IO here
 const cookieParser = require('cookie-parser');
 const verifyToken = require('./middlewares/jwt');
 
-app.use(cors({
-  origin: 'https://mak-tech-solution.netlify.app', // or use '*' to allow all origins (not recommended in production)
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true,
-}));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 
-
+app.use(cors({
+  origin: '*', // or use '*' to allow all origins (not recommended in production)
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+}));
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
