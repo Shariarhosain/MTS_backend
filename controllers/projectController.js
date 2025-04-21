@@ -124,12 +124,13 @@ const io = socketIo(server);  // Create a new instance of Socket.IO
             });
       
 // Trigger the `selesView_recent_month` after the project is created
-
+const pp=projectsWithClientNames[0];
        
 console.log("fullProject",projectsWithClientNames);
             res.status(201).json({ message: 'Project created successfully.', project });
             
-             io.emit('projectCreated', projectsWithClientNames); // ✅ Send full project with department name
+            io.emit('projectCreated', pp); // ✅ Send full project with department name
+            console.log("projectCreated",pp);
             await emitProjectDistributionCurrentMonth(io); // <-- call the helper that only emits via socket
             await emitSalesData(io); // <-- call the helper that only emits via socket
 
