@@ -113,11 +113,11 @@ const io = socketIo(server);  // Create a new instance of Socket.IO
         
             // Extract client name and format date fields
           
-            const projectsWithClientNames = {
-              ...projects,
-              clientName: projects.project_name.split('-'),
-              date: formatDate(projects.date),
-              deli_last_date: formatDate(projects.deli_last_date),
+                const projectsWithClientNames = {
+              ...projects, // Spread the existing properties of `projects`
+              clientName: projects.project_name.split('-')[0], // Extract `clientName` from `project_name`
+              date: formatDate(projects.date), // Format the `date`
+              deli_last_date: formatDate(projects.deli_last_date), // Format the `deli_last_date`
             };
             
 // Trigger the `selesView_recent_month` after the project is created
