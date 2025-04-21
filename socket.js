@@ -4,10 +4,11 @@ const initSocket = (server) => {
   const { Server } = require('socket.io');
   io = new Server(server, {
     cors: {
-      origin: '*',
-      methods: ['GET', 'POST']
+      origin: 'https://mtsbackend-production.up.railway.app',
+      methods: ['GET', 'POST','PUT']
     }
   });
+  https://mtsbackend-production.up.railway.app/
 
   io.on('connection', (socket) => {
     console.log('User connected:', socket.id);
