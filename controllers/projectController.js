@@ -129,7 +129,7 @@ const io = socketIo(server);  // Create a new instance of Socket.IO
 console.log("fullProject",projectsWithClientNames);
             res.status(201).json({ message: 'Project created successfully.', project });
             
-             io.emit('projectCreated', projectsWithClientNames[0]); // ✅ Send full project with department name
+             io.emit('projectCreated', projectsWithClientNames); // ✅ Send full project with department name
             await emitProjectDistributionCurrentMonth(io); // <-- call the helper that only emits via socket
             await emitSalesData(io); // <-- call the helper that only emits via socket
 
