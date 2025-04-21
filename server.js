@@ -22,11 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 
-app.use(cors({
-  origin: '*', // or use '*' to allow all origins (not recommended in production)
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true,
-}));
+
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
